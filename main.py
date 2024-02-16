@@ -56,8 +56,6 @@ def visit_website(proxy, website_url):
 
     # Change the path below to your chromedriver path
     driver = webdriver.Chrome(executable_path='C:\\Users\\HP\\Desktop\\chrome', options=options)
-
-
     # Simulate scrolling up and down on the page
     def scroll():
         scroll_height = driver.execute_script("return document.body.scrollHeight")
@@ -69,6 +67,7 @@ def visit_website(proxy, website_url):
     # Simulate clicking or tapping on links/buttons
     try:
         driver.get(website_url)  # Visit the provided website URL
+        print("Website loaded successfully")
         time.sleep(random.uniform(5, 10))  # Simulate initial wait time
 
         # Start session timer
@@ -83,6 +82,7 @@ def visit_website(proxy, website_url):
             if clickable_elements:
                 # Randomly click or tap on an element
                 random.choice(clickable_elements).click()
+                print("Clicked on a link/button")
                 time.sleep(random.uniform(3, 5))  # Simulate waiting time after click
             else:
                 break  # Break if no clickable elements found
