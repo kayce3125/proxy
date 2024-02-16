@@ -55,7 +55,7 @@ def visit_website(proxy, website_url):
     options.add_argument("--disable-blink-features=AutomationControlled")  # Disable automation features to avoid detection
 
     # Change the path below to your chromedriver path
-    driver = webdriver.Chrome(executable_path='path/to/chromedriver', options=options)
+    driver = webdriver.Chrome(executable_path='C:\Users\HP\Desktop\chrome', options=options)
 
     # Simulate scrolling up and down on the page
     def scroll():
