@@ -55,7 +55,8 @@ def visit_website(proxy, website_url):
     options.add_argument("--disable-blink-features=AutomationControlled")  # Disable automation features to avoid detection
 
     # Change the path below to your chromedriver path
-    driver = webdriver.Chrome(executable_path='C:\\Users\\HP\\Desktop\\chrome', options=options)
+   driver = webdriver.Chrome(executable_path='C:\\Users\\HP\\Desktop\\chrome', options=options)
+
     # Simulate scrolling up and down on the page
     def scroll():
         scroll_height = driver.execute_script("return document.body.scrollHeight")
@@ -86,6 +87,9 @@ def visit_website(proxy, website_url):
                 time.sleep(random.uniform(3, 5))  # Simulate waiting time after click
             else:
                 break  # Break if no clickable elements found
+
+    except Exception as e:
+        print(f"Error visiting website: {e}")
 
     finally:
         driver.quit()  # Make sure to quit the browser session to release resources
