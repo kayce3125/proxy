@@ -2,15 +2,12 @@ import random
 import time
 import platform
 import socket
+import struct
 import requests
 import pycountry
 from fake_useragent import UserAgent
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
 
 # Define the maximum number of clicks/taps per page
 MAX_CLICKS_PER_PAGE = 3
@@ -148,7 +145,7 @@ def main():
             total_proxies = len(proxies)
             visited_proxies = set()
 
-            while len(visited_proxies) < total_proxies:
+            while len(visited_proxies) < min(total_proxies, num_visits):
                 proxies_to_visit = random.sample(proxies, min(num_visits, total_proxies - len(visited_proxies)))
 
                 for proxy in proxies_to_visit:
